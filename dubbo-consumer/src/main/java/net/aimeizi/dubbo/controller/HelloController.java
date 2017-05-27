@@ -1,6 +1,9 @@
 package net.aimeizi.dubbo.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import net.aimeizi.dubbo.context.DubboFilter;
+import net.aimeizi.dubbo.context.SessionHolder;
+import net.aimeizi.dubbo.context.SessionInfo;
 import net.aimeizi.dubbo.entity.User;
 import net.aimeizi.dubbo.service.DemoService;
 import net.aimeizi.dubbo.service.UserService;
@@ -73,6 +76,10 @@ public class HelloController {
 	
 	@RequestMapping(value = "/userAdd", method = RequestMethod.POST)
 	public String userAdd(Model model, String userName,String userEnName, String country, String company) {
+		SessionInfo sessionInfo = new SessionInfo();
+		sessionInfo.setUserName("michael");
+		SessionHolder.setUserSessionInfo(sessionInfo); //TODO
+
 		User user = new User();
 		user.setUserName(userName);
 		user.setUserEnName(userEnName);

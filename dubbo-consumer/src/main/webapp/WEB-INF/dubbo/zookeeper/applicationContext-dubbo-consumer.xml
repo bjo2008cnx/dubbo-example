@@ -20,4 +20,6 @@
 	<!-- 使用@Autowired或@Resource注解时需要使用dubbo:reference来声明 -->
 	<!--<dubbo:reference interface="net.aimeizi.dubbo.service.UserService" id="userService"/>-->
 	<!--<dubbo:reference interface="net.aimeizi.dubbo.service.DemoService" id="demoService"/>-->
+
+	<dubbo:provider retries="0"  filter="dubboContextFilter"/>
 </beans>
