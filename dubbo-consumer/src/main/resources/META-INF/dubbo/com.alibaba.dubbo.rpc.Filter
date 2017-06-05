@@ -1,1 +1,1 @@
-dubboContextFilter=net.aimeizi.dubbo.context.DubboFilter
+dubboContextFilter=net.aimeizi.dubbo.context.UserInfoDubboFilter

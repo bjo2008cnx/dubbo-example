@@ -1,8 +1,7 @@
 package net.aimeizi.dubbo.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import net.aimeizi.dubbo.context.DubboFilter;
-import net.aimeizi.dubbo.context.SessionHolder;
+import net.aimeizi.dubbo.context.LocalSessionHelper;
 import net.aimeizi.dubbo.context.SessionInfo;
 import net.aimeizi.dubbo.entity.User;
 import net.aimeizi.dubbo.service.DemoService;
@@ -78,7 +77,7 @@ public class HelloController {
 	public String userAdd(Model model, String userName,String userEnName, String country, String company) {
 		SessionInfo sessionInfo = new SessionInfo();
 		sessionInfo.setUserName("michael");
-		SessionHolder.setUserSessionInfo(sessionInfo); //TODO
+		LocalSessionHelper.setUserSessionInfo(sessionInfo); //设置SessionInfo
 
 		User user = new User();
 		user.setUserName(userName);

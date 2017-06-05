@@ -89,8 +89,7 @@ public class ThreadLocalHolder {
                 map = null;
             }
         } catch (Exception e) {
-            e.printStackTrace();
-            //log.error("fail to remove ALL of ThreadLocal", e);
+            log.error("fail to remove ALL of ThreadLocal", e);
         }
     }
 }

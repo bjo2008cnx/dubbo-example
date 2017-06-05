@@ -5,7 +5,7 @@ import com.alibaba.dubbo.common.extension.Activate;
 import com.alibaba.dubbo.rpc.*;
 
 @Activate(group = {Constants.PROVIDER, Constants.CONSUMER})
-public class DubboFilter implements Filter {
+public class UserInfoDubboFilter implements Filter {
 
     public static final String USER_INFO = "USER_INFO";
 
@@ -14,7 +14,7 @@ public class DubboFilter implements Filter {
         Result result;
         String role = invoker.getUrl().getParameter(Constants.SIDE_KEY);
         SessionInfo sessionInfo = LocalSessionHelper.getUserSessionInfo();
-        if (sessionInfo == null){
+        if (sessionInfo == null) {
             sessionInfo = new SessionInfo();
             sessionInfo.setUserName("Wang");
         }
