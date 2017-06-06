@@ -87,4 +87,9 @@ public class HelloController {
 		model.addAttribute("saveUser", saveUser);
 		return "userAddRes";
 	}
+
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login() {
+		return "userAddRes";
+	}
 }
