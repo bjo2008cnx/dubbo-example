@@ -21,7 +21,7 @@ public class AuthInterceptor implements HandlerInterceptor {
         log.info("preHandle");
         System.out.println("preHandle  out");
         SessionInfo sessionInfo = new SessionInfo();
-        sessionInfo.setUserName("laowang");
+        sessionInfo.setUserName((String) request.getSession().getAttribute("name"));
         LocalSessionHelper.setUserSessionInfo(sessionInfo); //放入SessionHolder中
         return true;
     }

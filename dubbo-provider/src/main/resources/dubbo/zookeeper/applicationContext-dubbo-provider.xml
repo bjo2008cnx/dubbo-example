@@ -18,4 +18,5 @@
 	<dubbo:annotation package="net.aimeizi.dubbo.service"/>
 
 	<dubbo:provider retries="0"  filter="dubboContextFilter"/>
+	
 </beans>

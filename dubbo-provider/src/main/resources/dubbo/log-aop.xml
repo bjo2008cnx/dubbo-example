@@ -1,0 +1,18 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config />
+
+    <context:component-scan base-package="net.aimeizi.dubbo"/>
+
+    <aop:config proxy-target-class="true">
+        <aop:pointcut id="operatePoint" expression="@annotation(com.weimob.sst.common.log.aop.OperateLog)"/>
+        <aop:advisor pointcut-ref="operatePoint" id="logAdvisor" advice-ref="userOperateLogAdvisor"/>
+    </aop:config>
+
+    <bean id="userOperateLogAdvisor" class="com.weimob.sst.common.log.aop.OperateLogAdvice"/>
+</beans>
